@@ -4,6 +4,8 @@ export default function NoLimitIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 72 36"
+      width={72}
+      height={36}
       fill="currentColor"
       aria-hidden="true"
       focusable="false"

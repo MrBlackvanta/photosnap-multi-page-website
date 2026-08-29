@@ -78,6 +78,51 @@
   );
 }
 
+@utility v-shell {
+  @apply mx-auto w-full max-w-297 px-8.25 md:px-9.75;
+}
+
+@utility v-shell-header {
+  @apply mx-auto w-full max-w-297 px-6 md:px-9.75;
+}
+
+@utility v-trim-track {
+  margin-inline-end: -0.16667em;
+}
+
+@utility v-link {
+  @apply hover:text-ink-muted motion-safe:transition-colors;
+}
+
+@utility v-social {
+  & svg {
+    @apply motion-safe:transition-[fill];
+  }
+  &:hover svg {
+    fill: url("#brand-gradient");
+  }
+}
+
+@utility v-btn {
+  @apply inline-flex items-center justify-center uppercase motion-safe:transition-colors;
+}
+
+@utility v-btn-sm {
+  @apply text-label h-10 px-6;
+}
+
+@utility v-btn-lg {
+  @apply text-menu h-12;
+}
+
+@utility v-btn-dark {
+  @apply bg-black text-white hover:bg-grey-200 hover:text-black;
+}
+
+@utility v-btn-light {
+  @apply bg-white text-black hover:bg-grey-200;
+}
+
 @layer base {
   html {
     overflow-y: scroll;

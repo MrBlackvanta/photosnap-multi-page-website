@@ -4,6 +4,8 @@ export default function EmbedIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 71 72"
+      width={71}
+      height={72}
       fill="currentColor"
       aria-hidden="true"
       focusable="false"

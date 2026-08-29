@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 
+import { BrandGradient } from "@/components/icons";
+import { SiteFooter, SiteHeader } from "@/components/layout";
 import { siteUrl } from "@/data";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -40,8 +42,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} antialiased`}>
-      <body className="font-sans">
-        <main>{children}</main>
+      <body className="flex min-h-dvh flex-col font-sans">
+        <BrandGradient />
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

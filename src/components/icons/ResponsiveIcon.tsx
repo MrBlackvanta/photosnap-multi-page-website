@@ -4,6 +4,8 @@ export default function ResponsiveIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 72 72"
+      width={72}
+      height={72}
       fill="currentColor"
       aria-hidden="true"
       focusable="false"

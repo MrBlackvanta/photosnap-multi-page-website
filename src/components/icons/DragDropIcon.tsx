@@ -4,6 +4,8 @@ export default function DragDropIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 91 72"
+      width={91}
+      height={72}
       fill="currentColor"
       aria-hidden="true"
       focusable="false"

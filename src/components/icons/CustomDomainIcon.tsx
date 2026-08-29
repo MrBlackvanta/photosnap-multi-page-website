@@ -4,6 +4,8 @@ export default function CustomDomainIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 81 72"
+      width={81}
+      height={72}
       fill="currentColor"
       aria-hidden="true"
       focusable="false"

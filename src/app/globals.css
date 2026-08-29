@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@source not "../../*.md";
+
+@theme inline {
+  --font-sans: var(--font-dm-sans);
+}
+
+@layer base {
+  html {
+    overflow-y: scroll;
+  }
+  body {
+    @apply bg-white font-sans;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}

@@ -99,6 +99,10 @@
   margin-inline-end: -0.16667em;
 }
 
+@utility v-trim-display {
+  margin-inline-end: -0.10417em;
+}
+
 @utility v-link {
   @apply hover:text-ink-muted motion-safe:transition-colors;
 }

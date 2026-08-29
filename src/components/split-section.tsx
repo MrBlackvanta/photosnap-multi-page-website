@@ -65,7 +65,7 @@ export default function SplitSection({
       >
         <div className="flex w-full items-stretch">
           {accent && (
-            <span className="v-brand-gradient absolute top-0 left-8.25 h-1.5 w-32 md:static md:h-auto md:w-1.5 md:shrink-0" />
+            <span className="v-brand-gradient v-draw absolute top-0 left-8.25 h-1.5 w-32 md:static md:h-auto md:w-1.5 md:shrink-0" />
           )}
           <div
             className={`flex w-full flex-col items-start md:max-w-96.75 ${accent ? "md:ml-12 lg:ml-26.5" : ""}`}

@@ -9,6 +9,7 @@ export default function PlanCard({ plan, yearly }: PlanCardProps) {
   const { name, summary, featured } = plan;
   const price = yearly ? plan.yearly : plan.monthly;
   const muted = featured ? "text-white/60" : "text-black/60";
+  const counter = { "--price": price } as React.CSSProperties;
 
   return (
     <li
@@ -28,9 +29,14 @@ export default function PlanCard({ plan, yearly }: PlanCardProps) {
           <p className={`mt-4.5 ${muted}`}>{summary}</p>
         </div>
         <p className="mt-10 md:mt-0 md:pt-0.5 md:text-right lg:mt-10 lg:pt-0 lg:text-center">
-          <span className="text-display v-trim-display block">
-            ${price.toFixed(2)}
+          <span
+            aria-hidden="true"
+            className="text-display v-trim-display block"
+          >
+            $<span className="v-price" style={counter} />
+            .00
           </span>
+          <span className="sr-only">${price.toFixed(2)}</span>
           <span className={muted}>per {yearly ? "year" : "month"}</span>
         </p>
       </div>

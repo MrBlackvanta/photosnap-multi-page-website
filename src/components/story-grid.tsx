@@ -22,7 +22,7 @@ export default function StoryGrid({
       </h2>
       <ul className="grid md:grid-cols-2 lg:grid-cols-4">
         {stories.map((story) => (
-          <li key={story.title}>
+          <li key={story.title} className="v-rise">
             <StoryCard story={story} showDate={showDates} />
           </li>
         ))}

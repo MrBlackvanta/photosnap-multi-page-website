@@ -16,7 +16,7 @@ export default function Compare() {
 
       <table
         role="table"
-        className="block w-full table-fixed border-collapse md:table lg:mx-auto lg:max-w-182.5"
+        className="v-rise block w-full table-fixed border-collapse md:table lg:mx-auto lg:max-w-182.5"
       >
         <caption className="sr-only">
           Features included in each Photosnap plan

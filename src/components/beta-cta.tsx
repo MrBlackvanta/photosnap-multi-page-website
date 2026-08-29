@@ -17,7 +17,7 @@ export default function BetaCta() {
       />
       <span className="col-start-1 row-start-1 bg-black/50" />
 
-      <div className="v-shell col-start-1 row-start-1 flex h-72 flex-col justify-center md:h-70 md:flex-row md:items-center md:justify-between">
+      <div className="v-shell v-rise col-start-1 row-start-1 flex h-72 flex-col justify-center md:h-70 md:flex-row md:items-center md:justify-between">
         <h2
           id="beta-invite"
           className="text-display-sm md:text-display max-w-100 uppercase"

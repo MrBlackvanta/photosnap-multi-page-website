@@ -136,6 +136,63 @@
   @apply bg-white text-black hover:bg-grey-200;
 }
 
+@property --price {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@utility v-price {
+  counter-reset: price var(--price);
+
+  &::before {
+    content: counter(price);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: --price 450ms ease-out;
+  }
+}
+
+@keyframes v-draw-x {
+  from {
+    scale: 0 1;
+  }
+}
+
+@keyframes v-draw-y {
+  from {
+    scale: 1 0;
+  }
+}
+
+@utility v-draw {
+  @media (prefers-reduced-motion: no-preference) {
+    transform-origin: top left;
+    animation: v-draw-x 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+    @media (width >= theme(--breakpoint-md)) {
+      animation-name: v-draw-y;
+    }
+  }
+}
+
+@keyframes v-rise {
+  from {
+    translate: 0 0.75rem;
+  }
+}
+
+@utility v-rise {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: v-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 120px;
+    }
+  }
+}
+
 @layer base {
   html {
     overflow-y: scroll;

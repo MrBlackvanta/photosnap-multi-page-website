@@ -14,7 +14,7 @@ export default function FeatureGrid({
   return (
     <ul className={`grid text-center ${className ?? ""}`}>
       {features.map(({ title, body, icon: Icon }) => (
-        <li key={title}>
+        <li key={title} className="v-rise">
           <div className="flex h-18 items-center justify-center">
             <Icon />
           </div>

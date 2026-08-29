@@ -8,7 +8,7 @@ type SplitSectionProps = {
   as?: "h1" | "h2";
   headline: React.ReactNode;
   body: string;
-  link: { href: string; label: string };
+  link?: { href: string; label: string };
   image: {
     mobile: StaticImageData;
     tablet: StaticImageData;
@@ -17,7 +17,7 @@ type SplitSectionProps = {
   };
   photoSide: "left" | "right";
   tone?: "dark" | "light";
-  height?: "hero" | "standard";
+  height?: "hero" | "standard" | "compact";
   accent?: boolean;
   priority?: boolean;
 };
@@ -30,11 +30,13 @@ const columns = {
 const panelHeight = {
   hero: "h-104.75 md:h-162.5",
   standard: "h-104.75 md:h-150",
+  compact: "h-75 md:h-122.5",
 };
 
 const photoHeight = {
   hero: "h-73.5 md:h-162.5",
   standard: "h-67.75 md:h-150",
+  compact: "h-73.5 md:h-122.5",
 };
 
 export default function SplitSection({
@@ -79,9 +81,11 @@ export default function SplitSection({
             >
               {body}
             </p>
-            <ArrowLink href={link.href} className="mt-5.75 md:mt-12">
-              {link.label}
-            </ArrowLink>
+            {link && (
+              <ArrowLink href={link.href} className="mt-5.75 md:mt-12">
+                {link.label}
+              </ArrowLink>
+            )}
           </div>
         </div>
       </div>

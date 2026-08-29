@@ -38,7 +38,7 @@ export const features: Feature[] = [
   },
   {
     title: "Boost Your Exposure",
-    body: "Users that viewed your story or gallery can easily get notifed of new and featured stories with our built in mailing list.",
+    body: "Users that viewed your story or gallery can easily get notified of new and featured stories with our built in mailing list.",
     icon: BoostExposureIcon,
   },
   {

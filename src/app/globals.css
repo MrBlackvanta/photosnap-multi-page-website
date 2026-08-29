@@ -1,8 +1,81 @@
 @import "tailwindcss";
 @source not "../../*.md";
 
+@theme {
+  --color-grey-100: #f5f5f5;
+  --color-grey-200: #dfdfdf;
+  --color-ink-muted: #757575;
+
+  --color-brand-warm: #ffc593;
+  --color-brand-mid: #bc7198;
+  --color-brand-cool: #5a77ff;
+
+  --text-display: 2.5rem;
+  --text-display--line-height: 3rem;
+  --text-display--letter-spacing: 0.10417em;
+  --text-display--font-weight: 700;
+
+  --text-display-sm: 2rem;
+  --text-display-sm--line-height: 2.5rem;
+  --text-display-sm--letter-spacing: 0.10417em;
+  --text-display-sm--font-weight: 700;
+
+  --text-heading: 1.5rem;
+  --text-heading--line-height: 1.5625rem;
+  --text-heading--font-weight: 700;
+
+  --text-subheading: 1.125rem;
+  --text-subheading--line-height: 1.5625rem;
+  --text-subheading--font-weight: 700;
+
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.5625rem;
+  --text-body--font-weight: 400;
+
+  --text-note: 0.9375rem;
+  --text-note--line-height: 1.25rem;
+  --text-note--font-weight: 400;
+
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.0625rem;
+  --text-meta--font-weight: 400;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1rem;
+  --text-label--letter-spacing: 0.16667em;
+  --text-label--font-weight: 700;
+
+  --text-label-sm: 0.625rem;
+  --text-label-sm--line-height: 0.8125rem;
+  --text-label-sm--letter-spacing: 0.16667em;
+  --text-label-sm--font-weight: 700;
+
+  --text-menu: 0.9375rem;
+  --text-menu--line-height: 1.25rem;
+  --text-menu--letter-spacing: 0.16667em;
+  --text-menu--font-weight: 700;
+}
+
 @theme inline {
   --font-sans: var(--font-dm-sans);
+}
+
+@utility v-brand-gradient {
+  background-image: linear-gradient(
+    to top right,
+    var(--color-brand-warm) 0%,
+    var(--color-brand-mid) 52%,
+    var(--color-brand-cool) 100%
+  );
+}
+
+@utility v-card-scrim {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0) 0%,
+    rgb(0 0 0 / 0.66) 50%,
+    rgb(0 0 0 / 0.66) 100%
+  );
 }
 
 @layer base {
@@ -10,9 +83,13 @@
     overflow-y: scroll;
   }
   body {
-    @apply bg-white font-sans;
+    @apply bg-white font-sans text-body text-black;
   }
   button:not(:disabled) {
     cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
   }
 }

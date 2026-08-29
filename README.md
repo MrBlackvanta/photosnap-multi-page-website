@@ -14,4 +14,6 @@ challenge on Frontend Mentor.
 
 ## Author
 
-- LinkedIn: [Abdelrhman Abdelaal](https://www.linkedin.com/in/abdelrhman-vanta/)
+- [LinkedIn](https://www.linkedin.com/in/abdelrhman-vanta/)
+- [UpWork](https://www.upwork.com/freelancers/mrblackvanta)
+- [Frontend Mentor](https://www.frontendmentor.io/profile/MrBlackvanta)

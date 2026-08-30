@@ -115,9 +115,38 @@ Images are WebP throughout, art-directed with `<picture>` against Frontend Mento
 crops rather than resampled from one. Every image carries `width` and `height`; the hero is
 `eager` and `fetchpriority="high"` and everything else is `lazy`.
 
+They're encoded at quality 75, re-run from Frontend Mentor's original JPGs rather than from the
+earlier WebPs so there's no second generation of loss. Quality 80 was the first pass, and
+Lighthouse's image-delivery audit kept asking for a higher compression factor on the story cards;
+75 gives back 17.5% (149 KB across 50 files) for about 0.3 of added RMSE on a 0–255 scale, which
+is invisible at these sizes — the moon hero and the misty lake are the two that would band first
+and neither does. The three `designed-for-everyone` crops are the exception and stay as they were:
+they come from Frontend Mentor's replacement photo through a crop that isn't a plain cover-fit, so
+re-encoding them from the starter JPG of the same name would quietly swap the picture.
+
+Story cards matter more than their position suggests. Chrome's lazy-loading threshold is generous
+on a slow connection, so eight of the sixteen cards below the fold still get fetched during the
+initial load of `/stories` — 141 KB before this change, 117 KB after, all of it competing with the
+LCP image on a throttled link.
+
 `experimental.inlineCss` is on. It trades a stylesheet request for a bigger document, and which
 way that goes depends on how much of the page is above the fold, so it's worth measuring per
-project rather than assuming.
+project rather than assuming. Brotli is doing most of the work either way: the documents are
+170–195 KB raw and 15–19 KB on the wire.
+
+Scores come from the PageSpeed Insights API, five runs per route per strategy against the deployed
+site, so the laptop can't influence them. Accessibility, best practices and SEO returned 100 on
+every run of all four routes, and desktop performance did too. Mobile performance sits at the top
+of its range with the last point or two inside the runner's own noise: the same unchanged build
+returned 95, 95, 99, 99, 99 on `/stories` while Google's `benchmarkIndex` ranged 500–1294 across
+that batch, a 2.6x spread in the CPU doing the measuring.
+
+Two things that look like easy wins aren't, both measured rather than assumed. Declaring
+`weight: ["400", "700"]` on the font — the only two weights the site uses — produces a
+byte-identical file, because Google serves the same variable font either way. And a modern
+`browserslist` doesn't remove the 13.7 KB of polyfills (`Object.fromEntries`, `Array.prototype.flatMap`)
+sitting in the main chunk: they ship inside Next's prebuilt runtime, so the rebuild is
+byte-identical too. Neither is in the tree.
 
 ## Author
 

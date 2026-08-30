@@ -20,31 +20,32 @@ export default function MobileMenu() {
     };
     tablet.addEventListener("change", closeOnTablet);
 
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+
+    const toggle = toggleRef.current;
     const behind = document.querySelectorAll("main, footer");
     behind.forEach((element) => element.setAttribute("inert", ""));
 
-    const { style } = document.body;
+    const { style } = document.documentElement;
     const previousOverflow = style.overflow;
     style.overflow = "hidden";
 
     return () => {
       tablet.removeEventListener("change", closeOnTablet);
+      document.removeEventListener("keydown", closeOnEscape);
       behind.forEach((element) => element.removeAttribute("inert"));
       style.overflow = previousOverflow;
+      toggle?.focus();
     };
   }, [open]);
 
-  const close = () => {
-    setOpen(false);
-    toggleRef.current?.focus();
-  };
-
-  const closeOnEscape = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Escape") close();
-  };
+  const close = () => setOpen(false);
 
   return (
-    <div className="md:hidden" onKeyDown={closeOnEscape}>
+    <div className="md:hidden">
       <button
         ref={toggleRef}
         type="button"

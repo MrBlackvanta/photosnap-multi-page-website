@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { plans } from "@/data";
+import { plans } from "@/data/plans";
 
 import BillingToggle from "./billing-toggle";
 import PlanCard from "./plan-card";

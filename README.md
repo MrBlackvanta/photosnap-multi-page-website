@@ -66,11 +66,13 @@ clause.
   widths live on `<col>`, which table layout honours and the mobile block layout ignores.
 - **Each "Pick plan" link carries an `sr-only` plan name**, so three links to the same target
   don't share one accessible name.
-- **The mobile menu locks the page behind it** — it sets `overflow: hidden` on the body, restores
-  the previous value rather than assuming `visible`, marks the content behind it `inert`, and
-  closes itself on a `matchMedia` change at the desktop breakpoint so a rotate can't strand the
-  lock. `html { overflow-y: scroll }` reserves the scrollbar site-wide, so navigating between a
-  short route and a tall one doesn't shift centred content sideways.
+- **The mobile menu locks the page behind it** — it sets `overflow: hidden` on the root element,
+  restores the previous inline value rather than assuming `visible`, marks the content behind it
+  `inert`, and closes itself on a `matchMedia` change at the desktop breakpoint so a rotate can't
+  strand the lock. It has to be the root element and not the body: `html { overflow-y: scroll }`
+  reserves the scrollbar site-wide, and because the root's overflow is then not `visible` the
+  viewport takes its overflow from the root, so the body's own `overflow` stops propagating and a
+  lock set there does nothing at all.
 
 ### Motion
 
